@@ -11,7 +11,7 @@ This project documents the setup of an SSH honeypot using [Cowrie](https://githu
 
 # Files Included in this project
 
-- `cowrie.cfg`: Example Cowrie config (anonymized)
+- `cowrie.cfg`: Example Cowrie config
 - `discord_server`:Create your own webhook in your server to get the api key
 
 # Requirements
