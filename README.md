@@ -24,11 +24,11 @@ This project documents the setup of an SSH honeypot using [Cowrie](https://githu
 
 # Setup Summary
 
-1. Clone Cowrie and install dependencies
-2. Configure `cowrie.cfg` with `[output_discord]` and `[output_virustotal]`
-3. Use `alert_discord.py` to send custom alerts if you have your own custom alerts
-4. Create your custom data visualization as i used streamlit
-5. Run honeypot using systemd or directly
+1. clone Cowrie and install dependencies
+2. configure `cowrie.cfg` with `[output_discord]` and `[output_virustotal]`
+3. you can add your own custom alerts if you have any
+4. data can be visualized using different tool as i used streamlit
+5. run honeypot using systemd or directly
 
 # Author
 
