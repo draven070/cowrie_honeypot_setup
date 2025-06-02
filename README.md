@@ -24,11 +24,11 @@ This project documents the setup of an SSH honeypot using [Cowrie](https://githu
 
 # Setup Summary
 
-1. clone Cowrie and install dependencies
+1. clone Cowrie and install dependencies (use virtual environment)
 2. configure `cowrie.cfg` with `[output_discord]` and `[output_virustotal]`
 3. you can add your own custom alerts if you have any
 4. data can be visualized using different tool as i used streamlit
-5. run honeypot using systemd or directly
+5. run honeypot using systemd or using bin/cowrie start if you have created a different virtual environment
 
 # Author
 
