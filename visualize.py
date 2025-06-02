@@ -29,7 +29,7 @@ if df.empty:
 else:
     st.success(f"Loaded {len(df)} log entries.")
 
-    #  filtering
+    #  filtering the sidebar
     selected_event = st.sidebar.selectbox("Filter by event type", df['eventid'].unique())
     filtered = df[df['eventid'] == selected_event]
 
