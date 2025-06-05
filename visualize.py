@@ -3,10 +3,11 @@ import pandas as pd
 import json
 from collections import Counter
 import os
+import plotly.express as px
 
-LOG_PATH = os.path.expanduser("enter _path_for_cowrie.json")
+LOG_PATH = os.path.expanduser("/home/cowrie/cowrie/var/log/cowrie/cowrie.json")
 
-#for loading JSON logs
+# Load Cowrie JSON logs
 def load_logs(path):
     logs = []
     try:
@@ -29,7 +30,7 @@ if df.empty:
 else:
     st.success(f"Loaded {len(df)} log entries.")
 
-    #  filtering the sidebar
+    # Sidebar filtering
     selected_event = st.sidebar.selectbox("Filter by event type", df['eventid'].unique())
     filtered = df[df['eventid'] == selected_event]
 
@@ -39,9 +40,13 @@ else:
     if 'src_ip' in filtered.columns:
         st.write("### Top Source IPs")
         ip_counts = Counter(filtered['src_ip'])
-        st.bar_chart(pd.Series(ip_counts).sort_values(ascending=False).head(10))
+        ip_df = pd.DataFrame(ip_counts.items(), columns=['IP Address', 'Count']).sort_values(by="Count", ascending=False).head(10)
+        fig = px.pie(ip_df, names='IP Address', values='Count', title="Top Source IPs")
+        st.plotly_chart(fig)
 
     if 'username' in filtered.columns:
         st.write("### Top Usernames")
         user_counts = Counter(filtered['username'])
-        st.bar_chart(pd.Series(user_counts).sort_values(ascending=False).head(10))
+        user_df = pd.DataFrame(user_counts.items(), columns=['Username', 'Count']).sort_values(by="Count", ascending=False).head(10)
+        fig = px.pie(user_df, names='Username', values='Count', title="Top Usernames")
+        st.plotly_chart(fig)
